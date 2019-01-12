@@ -112,62 +112,36 @@ def trainAndValidate(xTrain, yTrain, xValid, yValid):
     # xValid = xTr[int(len(xTr)*.8):]
     # yValid = yTr[int(len(yTr)*.8):]
     #instantiate 5 models and 1 dummy model
-    models = []
-    models.append(RandomForestClassifier(n_estimators=100, max_depth=None,random_state=0, oob_score=True))
-    models.append(MultinomialNB())
+    #models = []
+    #models.append(RandomForestClassifier(n_estimators=100, max_depth=None,random_state=0, oob_score=True))
+    #models.append(MultinomialNB())
     #models.append(MLPClassifier(solver='sgd', activation = 'relu', alpha=1e-5, hidden_layer_sizes=(64,), random_state=1, max_iter = 5000))
-    models.append(AdaBoostClassifier(n_estimators = 1000, learning_rate = .01))
+    model = AdaBoostClassifier(n_estimators = 1000, learning_rate = .01)
     #models.append(GradientBoostingClassifier(n_estimators=100, learning_rate = .5, max_features=2, max_depth = 2, random_state = 0))
-    models.append(DummyClassifier(strategy='most_frequent', random_state=None, constant=None))
-    trainingErrors = []
-    validationErrors = []
-    n_groups = len(models)
-    #train models
-    modelCount = 0
-    for model in models:
-        print('model: ' + str(modelCount))
-        modelCount+=1
+    #models.append(DummyClassifier(strategy='most_frequent', random_state=None, constant=None))
+    # trainingErrors = []
+    # validationErrors = []
+    # n_groups = len(models)
+    # #train models
+    # modelCount = 0
+    # for model in models:
+    #     print('model: ' + str(modelCount))
+    #     modelCount+=1
+    #
+    #     model.fit(xTrain,yTrain)
+    #     pred = model.predict(xTrain)
+    #     val = sum(yTrain!=pred)/len(yTrain)
+    #     trainingErrors.append(val)
+    #     predV = model.predict(xValid)
+    #     validationErrors.append(sum(np.array(yValid)!=np.array(predV))/len(yValid))
 
-        model.fit(xTrain,yTrain)
-        pred = model.predict(xTrain)
-        val = sum(yTrain!=pred)/len(yTrain)
-        trainingErrors.append(val)
-        predV = model.predict(xValid)
-        validationErrors.append(sum(np.array(yValid)!=np.array(predV))/len(yValid))
+    model.fit(xTrain,yTrain)
+    pred = model.predict(xTrain)
+    trainingError = sum(yTrain!=pred)/len(yTrain)
+    predV = model.predict(xValid)
+    validationError = sum(np.array(yValid)!=np.array(predV))/len(yValid)
 
-    # ax = plt.subplot(1, 1, 1) #1 row, 1 column, 1st graph
-    # index = np.arange(n_groups)
-    # bar_width = 0.2
-    # opacity = 0.8
-    #
-    # rects1 = plt.bar(index, trainingErrors, bar_width,
-    #              alpha=opacity,
-    #              color='b',
-    #              label='Training Error')
-    #
-    # rects2 = plt.bar(index + bar_width, validationErrors, bar_width,
-    #              alpha=opacity,
-    #              color='r',
-    #              label='Validation Error')
-    #
-    # #labels
-    # for i, v in enumerate(validationErrors):
-    #     ax.text(index[i]+.10, v+.003, str(round(v,2)), color='red', fontweight='bold')
-    # for i, v in enumerate(trainingErrors):
-    #     ax.text(index[i]-.25, v+.003, str(round(v,2)), color='blue', fontweight='bold')
-    #
-    # plt.xlabel('Model')
-    # plt.ylabel('Error')
-    # plt.ylim(0,.7)
-    # plt.title('Model Comparison')
-    # plt.xticks(index + bar_width, ('Forest', 'NaiveBayes', #'Neural Net',
-    # 'AdaBoost', 'Dummy'))
-    # plt.legend()
-
-    #plt.show()
-    print('validation errors')
-    print(validationErrors)
-    return models
+    return model, trainingError, validationError
 
 
 #for Submission
@@ -186,29 +160,5 @@ def training():
     print('extracting features')
     xTrain, yTrain, xValid, yValid, vec, selector, xTest, yTest = extractFeatures(tweets, labels)
     print('training')
-    models = trainAndValidate(xTrain, yTrain, xValid, yValid)
-    return models[2], vec, selector
-
-# xTest = vec.transform(xTest).toarray()
-# xTest = selector.transform(xTest).astype('float32')
-# errors = []
-# for m in models:
-#     pred = m.predict(xTest)
-#     errors.append(sum(np.array(yTest)!=np.array(pred))/len(yTest))
-# print('Test Error')
-# print(errors)
-
-# #Prediction of Test Data for Submission
-# testTweets = []
-# testLabels = []
-# for x in testData:
-#     #tweet = x['text']
-#     tweet = featureEngineer(x)
-#     testTweets.append(tweet)
-# testTweets = np.array(testTweets)
-# xTest = vec.transform(testTweets).toarray()
-# xTest = selector.transform(xTest).astype('float32')
-# #errors = []
-# pred = models[2].predict(xTest)
-# print(pred)
-# prepareSubmit(pred)
+    model, trainingError, validationError = trainAndValidate(xTrain, yTrain, xValid, yValid)
+    return model, vec, selector, int(trainingError*100), int(validationError*100)

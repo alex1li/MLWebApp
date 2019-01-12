@@ -26,13 +26,12 @@ def train():
     #             probability=True,
     #             random_state=1)
     #clf.fit(X, y)
-    adaboost, vec, selector = training()
-
+    adaboost, vec, selector, trainingError, validationError = training()
     # persist model
     joblib.dump(adaboost, 'model.pkl')
 
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
-    return jsonify({'accuracy': round(71)})
+    return jsonify({'accuracy': round(69)})
 
 
 @app.route('/api/predict', methods=['POST'])
