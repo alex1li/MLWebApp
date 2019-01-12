@@ -42,9 +42,9 @@ def predict():
     
     # read model
     adaboost = joblib.load('model.pkl')
-    probabilities = adaboost.predict(X)
+    # probabilities = adaboost.predict(X)
     
-    return jsonify([{'name': 'Iris-Setosa', 'value': 12},
+    return jsonify([{'name': 'Iris-Setosa', 'value': X},
                     {'name': 'Iris-Versicolour', 'value': 20},
                     {'name': 'Iris-Virginica', 'value': 15}])
 
