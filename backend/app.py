@@ -46,7 +46,6 @@ def predict():
     adaboost = joblib.load('model.pkl')
     vec = joblib.load('vectorizer.pkl')
     selector = joblib.load('selector.pkl')
-<<<<<<< HEAD
     
     tweet = vec.transform([X])
     tweet = selector.transform(tweet)
