@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IrisService} from "./iris.service";
 import {
     Iris,
+    Tweet,
     ProbabilityPrediction,
     SVCParameters,
     SVCResult
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     public svcResult: SVCResult;
     public iris: Iris = new Iris();
     public probabilityPredictions: ProbabilityPrediction[];
+    public tweet: Tweet = new Tweet();
 
     // graph styling
     public colorScheme = {
@@ -37,7 +39,7 @@ export class HomeComponent implements OnInit {
     }
 
     public predictIris() {
-        this.irisService.predictIris(this.iris).subscribe((probabilityPredictions) => {
+        this.irisService.predictIris(this.tweet).subscribe((probabilityPredictions) => {
             this.probabilityPredictions = probabilityPredictions;
         });
     }

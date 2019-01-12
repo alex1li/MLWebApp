@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import {
     Iris,
+    Tweet,
     ProbabilityPrediction,
     SVCParameters,
     SVCResult
@@ -21,7 +22,7 @@ export class IrisService {
         return this.http.post(`${SERVER_URL}train`, svcParameters).map((res) => res.json());
     }
 
-    public predictIris(iris: Iris): Observable<ProbabilityPrediction[]> {
-        return this.http.post(`${SERVER_URL}predict`, iris).map((res) => res.json());
+    public predictIris(tweet: Tweet): Observable<ProbabilityPrediction[]> {
+        return this.http.post(`${SERVER_URL}predict`, tweet).map((res) => res.json());
     }
 }

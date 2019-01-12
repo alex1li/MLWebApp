@@ -1,8 +1,8 @@
 <div fxLayoutAlign="center center" fxLayout="column">
-    <h1>Iris Model - Example</h1>
+    <h1>Trump Tweets Classifier</h1>
 
     <div class="home__training">
-        <h3>Train Classification Model (Support Vector Machine)</h3>
+        <h3>Train Classification Model (Adaboost)</h3>
         <md-card fxLayoutAlign="center center" fxLayout="column">
             <h4>Set Parameter for Model Training</h4>
             <md-input-container>
@@ -35,40 +35,20 @@
     <div class="home__prediction"
          fxLayoutAlign="center center"
          fxLayout="column">
-        <h3>Predict Iris classes</h3>
+        <h3>Predict your own tweet</h3>
 
         <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Define Iris</h4>
+            <h4>Input Tweet</h4>
             <div fxLayout="row">
                 <md-input-container>
                     <input mdInput
-                           name="Sepal width"
-                           placeholder="Sepal width"
-                           [(ngModel)]="iris.sepalWidth">
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput
-                           name="Sepal length"
-                           placeholder="Sepal length"
-                           [(ngModel)]="iris.sepalLength">
-                </md-input-container>
-            </div>
-            <div fxLayout="row">
-                <md-input-container>
-                    <input mdInput
-                           name="Petal width"
-                           placeholder="Petal width"
-                           [(ngModel)]="iris.petalWidth">
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput
-                           name="Petal length"
-                           placeholder="Petal length"
-                           [(ngModel)]="iris.petalLength">
+                           name="Trump Tweet"
+                           placeholder="Trump Tweet"
+                           [(ngModel)]="tweet.text">
                 </md-input-container>
             </div>
             <div>
-                <button md-raised-button (click)="predictIris()">Predict iris</button>
+                <button md-raised-button (click)="predictIris()">Predict tweet</button>
             </div>
         </md-card>
 

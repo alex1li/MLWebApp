@@ -5,6 +5,13 @@ export class Iris {
     petalWidth: number = 1.2;
 }
 
+export class Tweet {
+
+  text: string = "Trump";
+
+
+}
+
 export class ProbabilityPrediction {
     name: string;
     value: number;
