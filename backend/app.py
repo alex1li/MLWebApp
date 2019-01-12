@@ -38,15 +38,15 @@ def train():
 def predict():
     # get iris object from request
     X = request.get_json()
-    X = [[float(X['sepalLength']), float(X['sepalWidth']), float(X['petalLength']), float(X['petalWidth'])]]
-
+    X = str(X['text'])
+    
     # read model
-    clf = joblib.load('model.pkl')
-    probabilities = clf.predict_proba(X)
-
-    return jsonify([{'name': 'Iris-Setosa', 'value': round(probabilities[0, 0] * 100, 2)},
-                    {'name': 'Iris-Versicolour', 'value': round(probabilities[0, 1] * 100, 2)},
-                    {'name': 'Iris-Virginica', 'value': round(probabilities[0, 2] * 100, 2)}])
+    adaboost = joblib.load('model.pkl')
+    probabilities = adaboost.predict(X)
+    
+    return jsonify([{'name': 'Iris-Setosa', 'value': 12},
+                    {'name': 'Iris-Versicolour', 'value': 20},
+                    {'name': 'Iris-Virginica', 'value': 15}])
 
 
 if __name__ == '__main__':
