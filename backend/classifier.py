@@ -23,7 +23,7 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
 #import matplotlib.pyplot as plt
 
-trainData = csv.DictReader(open('train.csv')) #training data
+ #training data
 #testData = csv.DictReader(open('test.csv')) #test submission data
 
 """Train classifier functions"""
@@ -32,6 +32,7 @@ trainData = csv.DictReader(open('train.csv')) #training data
 
 #Return random list of tweets and associated labels
 def gatherData():
+    trainData = csv.DictReader(open('train.csv'))
     tweets = []
     labels = []
     for x in trainData:
@@ -99,8 +100,11 @@ def extractFeatures(tweets, labels):
 
 #Trains and validates given xTr and yTr on many different models
 def trainAndValidate(xTrain, yTrain, xValid, yValid):
+    # models.append(RandomForestClassifier(n_estimators=100, max_depth=None,random_state=0, oob_score=True))
+    # models.append(MultinomialNB())
+    # #models.append(MLPClassifier(solver='sgd', activation = 'relu', alpha=1e-5, hidden_layer_sizes=(64,), random_state=1, max_iter = 5000))
 
-    model = AdaBoostClassifier(n_estimators = 1000, learning_rate = .01)
+    model = AdaBoostClassifier(n_estimators = 100, learning_rate = .1)
 
     model.fit(xTrain,yTrain)
     pred = model.predict(xTrain)

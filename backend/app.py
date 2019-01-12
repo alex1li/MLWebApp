@@ -33,8 +33,6 @@ def train():
     joblib.dump(adaboost, 'model.pkl')
     joblib.dump(vec, 'vectorizer.pkl')
     joblib.dump(selector, 'selector.pkl')
-
-
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
     return jsonify({'accuracy': round(100-trainingError)})
 
@@ -48,6 +46,7 @@ def predict():
     adaboost = joblib.load('model.pkl')
     vec = joblib.load('vectorizer.pkl')
     selector = joblib.load('selector.pkl')
+<<<<<<< HEAD
     
     tweet = vec.transform([X])
     tweet = selector.transform(tweet)
