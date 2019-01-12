@@ -29,6 +29,8 @@ def train():
     adaboost, vec, selector, trainingError, validationError = training()
     # persist model
     joblib.dump(adaboost, 'model.pkl')
+    joblib.dump(vec, 'vectorizer.pkl')
+    joblib.dump(selector, 'selector.pkl')
 
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
     return jsonify({'accuracy': round(100-trainingError)})
@@ -42,11 +44,16 @@ def predict():
 
     # read model
     adaboost = joblib.load('model.pkl')
-    # probabilities = adaboost.predict(X)
-    
+    vec = joblib.load('vectorizer.pkl')
+    selector = joblib.load('selector.pkl')
+
+    tweet = vec.transform([X])
+    tweet = selector.transform(tweet)
+    prob = adaboost.predict_proba(tweet)
+
     return jsonify([{'name': 'Iris-Setosa', 'value': X},
-                    {'name': 'Iris-Versicolour', 'value': 20},
-                    {'name': 'Iris-Virginica', 'value': 15}])
+                    {'name': 'Trump', 'value': int(prob[0][1]*100)},
+                    {'name': 'Staff', 'value': int(prob[0][0]*100)}])
 
 
 if __name__ == '__main__':
