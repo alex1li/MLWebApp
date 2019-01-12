@@ -31,7 +31,7 @@ def train():
     joblib.dump(adaboost, 'model.pkl')
 
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
-    return jsonify({'accuracy': round(69)})
+    return jsonify({'accuracy': round(100-trainingError)})
 
 
 @app.route('/api/predict', methods=['POST'])
@@ -39,7 +39,7 @@ def predict():
     # get iris object from request
     X = request.get_json()
     X = str(X['text'])
-    
+
     # read model
     adaboost = joblib.load('model.pkl')
     # probabilities = adaboost.predict(X)

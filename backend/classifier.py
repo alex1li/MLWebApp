@@ -99,41 +99,8 @@ def extractFeatures(tweets, labels):
 
 #Trains and validates given xTr and yTr on many different models
 def trainAndValidate(xTrain, yTrain, xValid, yValid):
-    # xTr = np.array(xTr)
-    # yTr = np.array(yTr)
-    # #randomize order of xTr and yTr while keeping relations
-    # n = len(xTr)
-    # indices = np.random.choice(n, n, replace=False)
-    # xTr = xTr[indices, :]
-    # yTr = yTr[indices]
-    # #split valid and train
-    # xTrain = xTr[:int(len(xTr)*.8)]
-    # yTrain = yTr[:int(len(yTr)*.8)]
-    # xValid = xTr[int(len(xTr)*.8):]
-    # yValid = yTr[int(len(yTr)*.8):]
-    #instantiate 5 models and 1 dummy model
-    #models = []
-    #models.append(RandomForestClassifier(n_estimators=100, max_depth=None,random_state=0, oob_score=True))
-    #models.append(MultinomialNB())
-    #models.append(MLPClassifier(solver='sgd', activation = 'relu', alpha=1e-5, hidden_layer_sizes=(64,), random_state=1, max_iter = 5000))
+
     model = AdaBoostClassifier(n_estimators = 1000, learning_rate = .01)
-    #models.append(GradientBoostingClassifier(n_estimators=100, learning_rate = .5, max_features=2, max_depth = 2, random_state = 0))
-    #models.append(DummyClassifier(strategy='most_frequent', random_state=None, constant=None))
-    # trainingErrors = []
-    # validationErrors = []
-    # n_groups = len(models)
-    # #train models
-    # modelCount = 0
-    # for model in models:
-    #     print('model: ' + str(modelCount))
-    #     modelCount+=1
-    #
-    #     model.fit(xTrain,yTrain)
-    #     pred = model.predict(xTrain)
-    #     val = sum(yTrain!=pred)/len(yTrain)
-    #     trainingErrors.append(val)
-    #     predV = model.predict(xValid)
-    #     validationErrors.append(sum(np.array(yValid)!=np.array(predV))/len(yValid))
 
     model.fit(xTrain,yTrain)
     pred = model.predict(xTrain)
