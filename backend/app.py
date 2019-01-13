@@ -34,7 +34,7 @@ def train():
     joblib.dump(vec, 'vectorizer.pkl')
     joblib.dump(selector, 'selector.pkl')
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
-    return jsonify({'accuracy': round(100-trainingError)})
+    return jsonify({'accuracy': round(100-trainingError), 'tweetOne': 'The Building of the Wall on the Southern Border will bring down the crime rate!', 'tweetTwo': 'Im in the White House, waiting. The democrats are everywhere but Washington as people await their pay.', 'tweetThree': 'Democrats are saying DACA is not worth it and dont want it in talks','tweetFour': 'We have a massive humanitarian crisis at the Southern border'})
 
 
 @app.route('/api/predict', methods=['POST'])

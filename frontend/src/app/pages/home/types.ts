@@ -9,7 +9,6 @@ export class Tweet {
 
   text: string = "Trump";
 
-
 }
 
 export class ProbabilityPrediction {
@@ -18,9 +17,13 @@ export class ProbabilityPrediction {
 }
 
 export class SVCParameters {
-    C: number = 2.0;
+    C: number = 9.0;
 }
 
 export class SVCResult {
     accuracy: number;
+    tweetOne: string;
+    tweetTwo: string;
+    tweetThree: string;
+    tweetFour: string;
 }

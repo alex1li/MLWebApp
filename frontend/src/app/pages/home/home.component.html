@@ -4,14 +4,7 @@
     <div class="home__training">
         <h3>Train Classification Model (Adaboost)</h3>
         <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Set Parameter for Model Training</h4>
-            <md-input-container>
-                <input
-                    mdInput
-                    name="C Parameter"
-                    placeholder="C Parameter"
-                    [(ngModel)]="svcParameters.C">
-            </md-input-container>
+            <h4>Train the Model</h4>
             <button md-raised-button (click)="trainModel()">
                 Train model
             </button>
@@ -19,7 +12,7 @@
 
         <div *ngIf="svcResult"
              fxLayoutAlign="center center"
-             fxLayout="column">
+             fxLayout="column"> 
             <h4>Training Accuracy</h4>
             <ngx-charts-linear-gauge
                 [view]="[300, 100]"
@@ -30,6 +23,21 @@
                 [units]="'% accuracy'">
             </ngx-charts-linear-gauge>
         </div>
+    </div>
+
+    <div class = "tweetOutput">
+    
+    
+    <div *ngIf="svcResult">
+
+    <h4> Trump's Four Latest Tweets: </h4>
+    
+<h4> Tweet One:  {{svcResult.tweetOne}} </h4> <br> 
+<h4> Tweet Two:   {{svcResult.tweetTwo}} </h4> <br> 
+<h4> Tweet Three:   {{svcResult.tweetThree}} </h4> <br>
+<h4> Three Four:   {{svcResult.tweetFour}} </h4> <br>
+    </div>
+
     </div>
 
     <div class="home__prediction"
@@ -43,6 +51,7 @@
                 <md-input-container>
                     <input mdInput
                            name="Trump Tweet"
+                           width="600px"
                            placeholder="Trump Tweet"
                            [(ngModel)]="tweet.text">
                 </md-input-container>
@@ -57,12 +66,18 @@
              fxLayout="column"
              class="home__chart-container">
             <h4>Prediction Result</h4>
-            <ngx-charts-pie-chart
-                [results]="probabilityPredictions"
+            <ngx-charts-bar-vertical
                 [scheme]="colorScheme"
-                [labels]="true"
-                [legend]="true">
-            </ngx-charts-pie-chart>
+		[results]="probabilityPredictions"
+                [gradient]="true"
+		[xAxis]="true"
+ 		[yAxis]="true"
+		[legend]="true"
+		[showXAxisLabel]="true"
+		[showYAxisLabel]="true"
+		[xAxisLabel]="test"
+		[yAxisLabel]="test">
+            </ngx-charts-bar-vertical>
         </div>
     </div>
 </div>
