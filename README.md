@@ -1,14 +1,6 @@
-# Data Science Web Application Tutorial
+# Trump or Staff Web App
 
-This repository is meant to demonstrate the use of Flask and Angular to build a simple, but state-of-the-art, web application which can be used for POCs.
-Read the corresponding Medium article [here](https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280).
-
-## Clone/Fork repository
-
-First fork or clone this repo:
-
-e.g. `git clone https://github.com/delsner/flask-angular-data-science.git`
- 
+Built from the framework shown in tihs Medium article [here](https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280). 
 
 ## Build images and run containers with docker-compose
 
