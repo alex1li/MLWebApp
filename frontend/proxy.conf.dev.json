@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://backend:8081",
+        "target": "http://trumporstaff.com:8081",
         "secure": false
     }
 }

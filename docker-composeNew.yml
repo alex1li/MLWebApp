@@ -1,0 +1,8 @@
+version: "3"
+services:
+  frontend:
+    image: alex1li/frontend:test
+    container_name: "frontend-app"
+    ports:
+      - "4200:4200"
+
