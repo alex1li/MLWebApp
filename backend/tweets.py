@@ -19,6 +19,11 @@ def getTweets():
     for t in tweets:
         #print(t['id'], t['text'])
         test.append(t['text'])
+    
+    print("This is what getTweets is returning:")
+    print(len(test))
+    
+    
     return test
 
 def predictTweets(tweets, model, vec, selector):

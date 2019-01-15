@@ -26,4 +26,10 @@ export class SVCResult {
     tweetTwo: string;
     tweetThree: string;
     tweetFour: string;
-}
+    tweetFive: string;
+    tweetSix: string;
+    tweetSeven: string;
+    tweetEight: string;
+    tweetNine: string;
+    tweetTen: string;
+} 

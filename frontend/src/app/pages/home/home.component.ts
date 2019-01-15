@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     public svcResult: SVCResult;
     public probabilityPredictions: ProbabilityPrediction[];
     public tweet: Tweet = new Tweet();
+    trumpImagePath: string;
 
     // graph styling
     public colorScheme = {
@@ -25,9 +26,13 @@ export class HomeComponent implements OnInit {
     };
 
     constructor(private tweetService: TweetService) {
-    }
+    	
+	this.trumpImagePath = '/assets/images/trump.jpg'
+	
+	}
 
     ngOnInit() {
+	this.trainModel()
     }
 
     public trainModel() {
@@ -41,5 +46,6 @@ export class HomeComponent implements OnInit {
             this.probabilityPredictions = probabilityPredictions;
         });
     }
+   
 
 }

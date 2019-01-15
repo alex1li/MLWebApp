@@ -1,19 +1,14 @@
 <div fxLayoutAlign="center center" fxLayout="column">
-    <h1>Trump Tweets Classifier</h1>
+    <h1>Presidential Tweets Classifier:</h1>
+    <h1>Which Tweets were Actually Written by the President?</h1>
 
     <div class="home__training">
-        <h3>Train Classification Model (Adaboost)</h3>
-        <md-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Train the Model</h4>
-            <button md-raised-button (click)="trainModel()">
-                Train model
-            </button>
-        </md-card>
+        <h3> Our Classification Model: Adaboost!</h3>
 
         <div *ngIf="svcResult"
              fxLayoutAlign="center center"
-             fxLayout="column"> 
-            <h4>Training Accuracy</h4>
+             fxLayout="column">
+            <h4>Training Accuracy:</h4>
             <ngx-charts-linear-gauge
                 [view]="[300, 100]"
                 [value]="svcResult.accuracy"
@@ -26,17 +21,218 @@
     </div>
 
     <div class = "tweetOutput">
-    
-    
+
+
     <div *ngIf="svcResult">
 
-    <h4> Trump's Four Latest Tweets: </h4>
-    
-<h4> Tweet One:  {{svcResult.tweetOne}} </h4> <br> 
-<h4> Tweet Two:   {{svcResult.tweetTwo}} </h4> <br> 
-<h4> Tweet Three:   {{svcResult.tweetThree}} </h4> <br>
-<h4> Three Four:   {{svcResult.tweetFour}} </h4> <br>
+    <h1> The President's Ten Latest Tweets: </h1>
+
+	<md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align = "center"/>
     </div>
+
+    <div id="names" style="display:inline;">
+
+    <b>   Donald J. Trump   </b>
+      @realDonaldTrump
+    </div>
+
+</div>​
+  <h4> "{{svcResult.tweetOne}}" </h4>
+
+  </md-card>
+	<br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:nowrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align = "center"/>
+    </div>
+
+    <div id="names" style="display:inline;">
+
+    <b>   Donald J. Trump   </b>
+      @realDonaldTrump
+    </div>
+    <br>
+
+
+</div>​
+
+  <h4> "{{svcResult.tweetTwo}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+
+          <b>   Donald J. Trump   </b>
+            @realDonaldTrump
+    </div>
+
+</div>​
+    <h4> "{{svcResult.tweetThree}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+</div>​
+
+    <h4> "{{svcResult.tweetFour}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+      <h4> "{{svcResult.tweetFive}}" </h4>
+</div>​
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+</div>​
+
+    <h4> "{{svcResult.tweetSix}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+</div>​
+
+    <h4> "{{svcResult.tweetSeven}}" </h4>
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+</div>​
+
+      <h4> "{{svcResult.tweetEight}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+    </div>
+
+</div>​
+
+      <h4> "{{svcResult.tweetNine}}" </h4>
+
+  </md-card>
+  <br>
+
+  <md-card fixLayoutAlign = "center center" fixLayout="column">
+
+  <div id="container" style="white-space:wrap">
+
+    <div id="image" style="display:inline;">
+        <img [src]="trumpImagePath" height="50" width="50" align="center"/>
+    </div>
+
+    <div id="texts" style="display:inline; white-space:wrap;">
+
+      <b>   Donald J. Trump   </b>
+        @realDonaldTrump
+
+    </div>
+
+</div>​
+
+    <h4> "{{svcResult.tweetTen}}" </h4>
+
+  </md-card>
+  <br>
+    </div>
+
+
+
+
 
     </div>
 
