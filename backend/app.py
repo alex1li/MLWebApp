@@ -20,26 +20,42 @@ def train():
     # get parameters from request
     #parameters = request.get_json()
 
-    adaboost, vec, selector, trainingError, validationError = training()
+    #adaboost, vec, selector, trainingError, validationError = training()
     # persist model
-    joblib.dump(adaboost, 'model.pkl')
-    joblib.dump(vec, 'vectorizer.pkl')
-    joblib.dump(selector, 'selector.pkl')
+    #joblib.dump(adaboost, 'model.pkl')
+    #joblib.dump(vec, 'vectorizer.pkl')
+    #joblib.dump(selector, 'selector.pkl')
+    #use existing models
+    adaboost = joblib.load('model.pkl')
+    vec = joblib.load('vectorizer.pkl')
+    selector = joblib.load('selector.pkl')
     # get tweets and predict
     recentTweets = getTweets()
-    preds = predictTweets(recentTweets, adaboost, vec, selector)
+    preds, predsNumber = predictTweets(recentTweets, adaboost, vec, selector)
     #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
-    return jsonify({'accuracy': round(100-trainingError),
+    #1 is Trump
+    #-1 is Staff
+    return jsonify({'accuracy': 'not used',
     'tweetOne': recentTweets[0] + preds[0],
+    'tweetOnePred': predsNumber[0],
     'tweetTwo': recentTweets[1] + preds[1],
+    'tweetTwoPred': predsNumber[1],
     'tweetThree': recentTweets[2] + preds[2],
+    'tweetThreePred': predsNumber[2],
     'tweetFour': recentTweets[3] + preds[3],
+    'tweetFourPred': predsNumber[3],
     'tweetFive': recentTweets[4] + preds[4],
+    'tweetFivePred': predsNumber[4],
     'tweetSix': recentTweets[5] + preds[5],
+    'tweetSixPred': predsNumber[5],
     'tweetSeven': recentTweets[6] + preds[6],
+    'tweetSevenPred': predsNumber[6],
     'tweetEight': recentTweets[7] + preds[7],
+    'tweetEightPred': predsNumber[8],
     'tweetNine': recentTweets[8] + preds[8],
-    'tweetTen': recentTweets[9] + preds[9]})
+    'tweetNinePred': predsNumber[8],
+    'tweetTen': recentTweets[9] + preds[9],
+    'tweetTenPred': predsNumber[9]})
 
 
 @app.route('/api/predict', methods=['POST'])

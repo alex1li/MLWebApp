@@ -13,29 +13,26 @@ def getTweets():
       access_token_key='491599498-QrCGgzC8scH15NbDq3qIbmNCnu9meo8Rc0u2L7qA',
       access_token_secret='iR5tDCtehji5iWnEL7wrLsFItEepwS8bUHOmpKGjlcoUm')
 
-    t = api.GetUserTimeline(screen_name="realDonaldTrump", count=10)
+    t = api.GetUserTimeline(screen_name="realDonaldTrump", include_rts=False, count=40)
     tweets = [i.AsDict() for i in t]
     test = []
     for t in tweets:
         #print(t['id'], t['text'])
         test.append(t['text'])
-    
-    print("This is what getTweets is returning:")
-    print(len(test))
-    
-    
+
     return test
 
 def predictTweets(tweets, model, vec, selector):
     tweets = vec.transform(tweets).toarray()
     tweets = selector.transform(tweets).astype('float32')
     preds = model.predict(tweets).tolist()
+    predsNumber = preds[:]
     for i in range(len(preds)):
         if preds[i] > 0:
             preds[i] = " - Donald J. Trump"
         else:
             preds[i] = " - White House Staff"
-    return preds
+    return preds, predsNumber
 
 #print(test)
 # print('training')
