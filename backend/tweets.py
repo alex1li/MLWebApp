@@ -11,14 +11,15 @@ def getTweets():
     api = twitter.Api(consumer_key='mxSTcGP1nh6jmDG7MCB0BuOex',
       consumer_secret='6KO0vUmpeG04xzyNz5DSOXPvRKjPfAMcblGMhP6pyDrwQdPmlM',
       access_token_key='491599498-QrCGgzC8scH15NbDq3qIbmNCnu9meo8Rc0u2L7qA',
-      access_token_secret='iR5tDCtehji5iWnEL7wrLsFItEepwS8bUHOmpKGjlcoUm')
+      access_token_secret='iR5tDCtehji5iWnEL7wrLsFItEepwS8bUHOmpKGjlcoUm',
+      tweet_mode="extended")
 
     t = api.GetUserTimeline(screen_name="realDonaldTrump", include_rts=False, count=40)
     tweets = [i.AsDict() for i in t]
     test = []
     for t in tweets:
         #print(t['id'], t['text'])
-        test.append(t['text'])
+        test.append(t['full_text'])
 
     return test
 
