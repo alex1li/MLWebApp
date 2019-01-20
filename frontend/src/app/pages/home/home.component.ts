@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
     };
 
     constructor(private tweetService: TweetService) {
-    	
-	this.trumpImagePath = '/assets/images/trump.jpg'
-	
+
+	this.trumpImagePath = 'https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg'
+
 	}
 
     ngOnInit() {
@@ -46,6 +46,6 @@ export class HomeComponent implements OnInit {
             this.probabilityPredictions = probabilityPredictions;
         });
     }
-   
+
 
 }
