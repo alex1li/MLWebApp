@@ -32,4 +32,14 @@ export class SVCResult {
     tweetEight: string;
     tweetNine: string;
     tweetTen: string;
+    tweetOnePred: string;
+    tweetTwoPred: string;
+    tweetThreePred: string;
+    tweetFourPred: string;
+    tweetFivePred: string;
+    tweetSixPred: string;
+    tweetSevenPred: string;
+    tweetEightPred: string;
+    tweetNinePred: string;
+    tweetTenPred: string;
 } 
