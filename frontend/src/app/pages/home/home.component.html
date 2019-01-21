@@ -1,13 +1,14 @@
 <div fxLayoutAlign="center center" fxLayout="column">
-  <h1>Trump or Staff</h1>
+  <h1><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" height="17px" width="30px" align = "center"/> Presidential Tweet Classifier <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" height="17px" width="30px" align = "center"/> </h1>
+  <p class="description">Introducing Trump or Staff, a website that uses machine learning to predict if tweets are written by President Trump or his Staff <br> <br> Below are examples of how we label tweets:</p>
   <div id="image" style="display:inline;">
-    <img src="http://i.cdn.cnn.com/cnn/interactive/2017/politics/trump-tweets/media/trump-tweets-hdr-02.jpg" align = "center"/>
+    <img src="https://i.imgur.com/JPcbNl7.png" height="220px" width="655px" align = "center"/>
   </div>
-  <h3>Using Machine Learning to determine if tweets are written by President Trump or his Staff</h3>
 
   <div class="home__training">
-    <h3> Our Classification Model: Adaboost!</h3>
     <!--
+    <h3> Our Classification Model: Adaboost!</h3>
+
     <div *ngIf="svcResult"
     fxLayoutAlign="center center"
     fxLayout="column">
@@ -32,253 +33,232 @@
     <h1>Recent Tweets: </h1>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetOneUrl}}" height="50" width="50" align = "center"/>
-        </div>
-
-        <div id="names" style="display:inline;">
-
-          <b>   {{svcResult.tweetOnePred}}   </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-      <h4> "{{svcResult.tweetOne}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetOneUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetOnePred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetOne}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:nowrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetTwoUrl}}" height="50" width="50" align = "center"/>
-        </div>
-
-        <div id="names" style="display:inline;">
-
-          <b>    {{svcResult.tweetTwoPred}}   </b>
-          @realDonaldTrump
-        </div>
-        <br>
-
-
-      </div>​
-
-      <h4> "{{svcResult.tweetTwo}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetTwoUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetTwoPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetTwo}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetThreeUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-
-          <b>    {{svcResult.tweetThreePred}}   </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-      <h4> "{{svcResult.tweetThree}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetThreeUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetThreePred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetThree}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetFourUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetFourPred}}   </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetFour}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetFourUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetFourPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetFour}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetFiveUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetFivePred}}   </b>
-          @realDonaldTrump
-        </div>
-
-        <h4> "{{svcResult.tweetFive}}" </h4>
-      </div>​
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetFiveUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetFivePred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetFive}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetSixUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetSixPred}}   </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetSix}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetSixUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetSixPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetSix}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetSevenUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetSevenPred}}   </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetSeven}}" </h4>
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetSevenUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetSevenPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetSeven}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetEightUrl}}" height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetEightPred}}  </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetEight}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetEightUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetEightPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetEight}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetNineUrl}}"height="50" width="50" align="center"/>
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-          <b>    {{svcResult.tweetNinePred}}  </b>
-          @realDonaldTrump
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetNine}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetNineUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetNinePred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetNine}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
-    <br>
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
-
-      <div id="container" style="white-space:wrap">
-
-        <div id="image" style="display:inline;">
-          <img src="{{svcResult.tweetTenUrl}}"height="50" width="50" align="center"/>
-
-        </div>
-
-        <div id="texts" style="display:inline; white-space:wrap;">
-
-          <b>    {{svcResult.tweetTenPred}}   </b>
-          @realDonaldTrump
-
-        </div>
-
-      </div>​
-
-      <h4> "{{svcResult.tweetTen}}" </h4>
-
+      <div class="row">
+        <div id="container" style="white-space:wrap">
+          <div class="column left">
+            <div id="image" style="display:inline;">
+              <img src="{{svcResult.tweetTenUrl}}" class="pro-pic" height="50" width="50" align = "center"/>
+            </div>
+          </div>
+          <div class="column right">
+            <div id="names">
+              <b>   {{svcResult.tweetTenPred}}   </b>
+              @realDonaldTrump
+              <p> "{{svcResult.tweetTen}}" </p>
+            </div>
+          </div>
+        </div>​
+      </div>
     </md-card>
+
     <br>
-  </div>
-
-
-
-
 
 </div>
 
-<div class="home__prediction"
-fxLayoutAlign="center center"
-fxLayout="column">
-<h3>Predict your own tweet</h3>
+<div class="home__prediction">
+  <a href="https://imgflip.com/i/2roqbi"><img src="https://i.imgflip.com/2roqbi.jpg" class="meme" title="Predict Your Own Tweet" height="50%" width="50%" align ="center"/></a>
 
-<md-card fxLayoutAlign="center center" fxLayout="column">
-  <h4>Input Tweet</h4>
-  <div fxLayout="row">
+  <md-card class="twitter-card" fxLayoutAlign="center center" fxLayout="column">
+    <h4>Predict any tweet from President Trump</h4>
+
     <md-input-container>
       <input mdInput
       name="Trump Tweet"
       width="600px"
-      placeholder="Trump Tweet"
+      placeholder="Paste a tweet"
       [(ngModel)]="tweet.text">
     </md-input-container>
-  </div>
-  <div>
-    <button md-raised-button (click)="predictIris()">Predict tweet</button>
-  </div>
-</md-card>
 
-<div *ngIf="probabilityPredictions"
-fxLayoutAlign="center center"
-fxLayout="column"
-class="home__chart-container">
-<h4>Prediction Result</h4>
-<ngx-charts-bar-vertical
-[scheme]="colorScheme"
-[results]="probabilityPredictions"
-[gradient]="true"
-[xAxis]="true"
-[yAxis]="true"
-[legend]="true"
-[showXAxisLabel]="true"
-[showYAxisLabel]="true"
-[xAxisLabel]="test"
-[yAxisLabel]="test">
-</ngx-charts-bar-vertical>
+    <div>
+      <button md-raised-button (click)="predictIris()">Predict tweet</button>
+    </div>
+  </md-card>
+
+  <div *ngIf="probabilityPredictions" fxLayoutAlign="center center" fxLayout="column" class="home__chart-container">
+    <h4>Prediction Result</h4>
+    <ngx-charts-bar-vertical
+    [scheme]="colorScheme"
+    [results]="probabilityPredictions"
+    [gradient]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="test"
+    [yAxisLabel]="test">
+  </ngx-charts-bar-vertical>
 </div>
 </div>
 </div>

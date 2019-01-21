@@ -10,3 +10,49 @@ $chart-width: 600px;
   max-width: 600px;
   margin: auto;
 }
+
+.description{
+  max-width: 600px;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 7%;
+}
+
+.right {
+  width: 85%;
+  padding-left: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.pro-pic {
+  border-radius: 50%;
+}
+
+.meme{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+md-card {
+  padding: 15px;
+}
+
+md-input-container {
+  width: 600px;
+}
