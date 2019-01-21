@@ -81,18 +81,28 @@ def train():
 def predict():
     # get iris object from request
     X = request.get_json()
-    X = str(X['text'])
+    if X is not None:
+        X = str(X['text'])
 
-    adaboost = joblib.load('model.pkl')
-    vec = joblib.load('vectorizer.pkl')
-    selector = joblib.load('selector.pkl')
+        adaboost = joblib.load('model.pkl')
+        vec = joblib.load('vectorizer.pkl')
+        selector = joblib.load('selector.pkl')
 
-    tweet = vec.transform([X])
-    tweet = selector.transform(tweet)
-    prob = adaboost.predict_proba(tweet)
+        tweet = vec.transform([X])
+        tweet = selector.transform(tweet)
+        prob = adaboost.predict_proba(tweet)
 
-    return jsonify([{'name': 'Trump', 'value': int(prob[0][1]*100)},
-                    {'name': 'Staff', 'value': int(prob[0][0]*100)}])
+        if int(prob[0][1]) > int(prob[0][0]):
+            author = 'Donald J. Trump'
+        else:
+            author = 'White House Staff'
+    else:
+        prob = [[0,1]] #placeholder
+        author = 'Please enter a tweet'
+
+    # return jsonify([{'name': 'Trump', 'value': int(prob[0][1]*100)},
+    #                 {'name': 'Staff', 'value': int(prob[0][0]*100)}])
+    return jsonify({'prediction': author})
 
 if __name__ == '__main__':
     # run web server

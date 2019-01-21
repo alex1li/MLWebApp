@@ -6,9 +6,22 @@ $chart-width: 600px;
     max-width: 100%;
 }
 
-.twitter-card {
-  max-width: 600px;
+.example-card {
+  width: 600px;
   margin: auto;
+}
+
+.twitter-card {
+  width: 600px;
+  margin: auto;
+}
+
+.title{
+  font-size: 2em;
+}
+
+.recents{
+  font-size: 2em;
 }
 
 .description{
@@ -49,10 +62,59 @@ $chart-width: 600px;
   margin-bottom: 10px;
 }
 
+.white-house{
+  height: 158px;
+  width: 250px;
+}
+
+.examples{
+  height:220px;
+  width: 655px;
+}
+
+.prediction{
+  margin-bottom: 10px
+}
+
 md-card {
   padding: 15px;
 }
 
 md-input-container {
-  width: 600px;
+  width: 550px;
+}
+
+@media(max-width: 767px) {
+  md-input-container {
+    width: 300px;
+  }
+  .example-card {
+    width: 350px;
+    margin: auto;
+  }
+  .twitter-card {
+    width: 350px;
+    margin: auto;
+  }
+  .title{
+    font-size: 1.2em;
+  }
+  .description{
+    font-size: 1em;
+    width: 350px;
+  }
+  .left {
+    width: 15%;
+  }
+  .right {
+    width: 75%;
+    padding-left: 20px;
+  }
+  .recents{
+    font-size: 1.2em;
+    width: 350px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
