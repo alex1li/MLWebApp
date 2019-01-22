@@ -11,11 +11,13 @@ import {SharedModule} from "./shared/shared.module";
 import {ROUTES} from "./app.routes";
 import {HomeComponent} from "./pages/home/home.component";
 import {TweetService} from "./pages/home/tweet.service";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
+        AboutComponent,
     ],
     imports: [
         BrowserModule,
