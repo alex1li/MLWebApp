@@ -79,8 +79,8 @@ def featureEngineer(data):
 def extractFeatures(tweets, labels):
     n = len(tweets)
     #split valid and train
-    xTrain = tweets[:int(n*.8)]
-    yTrain = labels[:int(n*.8)]
+    xTrain = tweets #xTrain = tweets[:int(n*.8)]
+    yTrain = labels #yTrain = labels[:int(n*.8)]
     xValid = tweets[int(n*.8):int(n*.9)]
     yValid = labels[int(n*.8):int(n*.9)]
     xTest = tweets[int(n*.9):]

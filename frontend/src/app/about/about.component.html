@@ -1,3 +1,49 @@
-<p>
-  about works!
-</p>
+<div class="about" fxLayoutAlign="center center" fxLayout="column">
+  <h1 class="section">
+    Background:
+  </h1>
+
+  <p class="body">
+    Trump or Staff is the extension of a class project for CS 4780, in which we developed a classifier to predict if a tweet from @realDonaldTrump is sent from an Android or iPhone. The motivation for this project came from the observation that for several months (November 2016 - March 2017) of the Trump Campaign and Presidency, almost all of the President’s aides owned iPhones while the President himself owned an Android.
+  </p>
+
+  <p class="body">
+    Therefore knowing the type of phone from which a tweet is sent could indicate if the President wrote the tweet himself or if one of his staffers wrote the tweet. Luckily, Twitter marks the type of phone a tweet is sent from in the metadata. Using this idea and data from Twitter’s public API, data scientists noted that there were indeed distinguishable patterns in the content, sentiment, timing, and language used between Android tweets and IPhone tweets, likely stemming from the difference in the writing styles of Trump himself and his staffers (analysis seen <a href="http://varianceexplained.org/r/trump-tweets/">here.</a>)
+  </p>
+
+  <h1 class="section">
+    Algorithm:
+  </h1>
+
+  <p class="body">
+    For this project, we trained our classifier on tweets during the period when the President and his staff had different phone types in order to learn differences in their tweet style and content. We assume tweets sent from an Android are from President Trump and tweets from an iPhone are from his staff. We then use this classifier to predict if tweets today are sent by President Trump or a staffer.
+  </p>
+
+  <p class="body">
+    We experimented with several different machine learning algorithms to determine the best model to use for this problem. We compared the training and validation errors obtained from Random Forest, Naive Bayes, Multilayer Perceptron, and Adaboost models. After optimizing each model to achieve the lowest error, we found that the Adaboost model consistently performed the best with a validation accuracy of about 90%.
+  </p>
+
+  <h1 class="section">
+    Acknowledgements:
+  </h1>
+
+  <p class="body">
+    Prof. Weinberger - for introducing the concept of this project to us in his Machine Learning class. <br>
+    Yurong You, Qianqian Wang, and Junan Chen - for helping us with feature extraction and model development. <br>
+    Daniel Elsner - for the insightful <a href="https://medium.com/@dvelsner/deploying-a-simple-machine-learning-model-in-a-modern-web-application-flask-angular-docker-a657db075280">Medium Article</a> that got us started in developing this web application.
+  </p>
+
+  <h1 class="section">
+    Contact Us:
+  </h1>
+
+  <p class="body">
+    Feel free to reach out via email with any questions or inquiries! <br>
+    afl59@cornell.edu <br>
+    rp442@cornell.edu <br>
+    <br>
+    Note: This project is purely an academic endeavor without any political affiliation.
+  </p>
+
+
+</div>

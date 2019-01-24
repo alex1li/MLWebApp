@@ -1,14 +1,48 @@
+<div class="scroll">
 <div fxLayoutAlign="center center" fxLayout="column">
-  <h1 class="title"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" height="17px" width="30px" align = "center"/> Presidential Tweet Classifier <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" height="17px" width="30px" align = "center"/> </h1>
   <div id="image" style="display:inline;">
     <img src="https://i.imgur.com/t2RyFr7.png" class="white-house" align = "center"/>
   </div>
-  <p class="description">Introducing Trump or Staff, a website that uses machine learning to predict if tweets are written by President Trump or his Staff <br> <br> Below are examples of how we label tweets:</p>
+  <div class="maga">
+    <h1 class="title">Presidential Tweet Classifier</h1>
+  </div>
+  <!--
 
-  <div class = "tweetOutput">
+
+  <div class="fadein">
+    <img src="https://i.imgur.com/ofzsrqC.png" class="bottom" align = "center" />
+    <img src="https://i.imgur.com/k8XL2K4.png" class="top" align = "center" />
+  </div>
+  -->
+
+    <p class="description">Gather tweets from @realDonaldTrump</p>
+    <img src="https://i.imgur.com/2Wgwocv.png" class="instructions" align = "center" style="opacity: 0.9;"/>
+    <p class="description">And use machine learning to predict if they're written by Trump or Staff</p>
+    <img src="https://i.imgur.com/xMHyIG9.png" class="instructions" align = "center"/>
+
+
+  <!--
+  <md-card class="example-card" fixLayoutAlign = "center center" fixLayout="column">
+    <div class="row">
+      <div id="container" style="white-space:wrap">
+        <div class="column left">
+          <div id="image" style="display:inline;">
+            <img src="https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg" class="pro-pic" height="50" width="50" align = "center"/>
+          </div>
+        </div>
+        <div class="column right">
+          <div id="names">
+            <b>   Donald J. Trump   </b>
+            @realDonaldTrump
+            <p class="text"> Just leaving D.C. Had great meetings with Republicans in the House and Senate. Very interesting day! These are people who love our country! </p>
+          </div>
+        </div>
+      </div>​
+    </div>
+  </md-card>
     <md-card class="example-card" fixLayoutAlign = "center center" fixLayout="column">
       <div class="row">
-        <div id="container" style="white-space:wrap">
+        <div id="container">
           <div class="column left">
             <div id="image" style="display:inline;">
               <img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" class="pro-pic" height="50" width="50" align = "center"/>
@@ -18,26 +52,7 @@
             <div id="names">
               <b>   White House Staff   </b>
               @realDonaldTrump
-              <p> Tweets predicted to be written by White House Staff</p>
-            </div>
-          </div>
-        </div>​
-      </div>
-    </md-card>
-
-    <md-card class="example-card" fixLayoutAlign = "center center" fixLayout="column">
-      <div class="row">
-        <div id="container" style="white-space:wrap">
-          <div class="column left">
-            <div id="image" style="display:inline;">
-              <img src="https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg" class="pro-pic" height="50" width="50" align = "center"/>
-            </div>
-          </div>
-          <div class="column right">
-            <div id="names">
-              <b>   Donald J. Trump   </b>
-              @realDonaldTrump
-              <p> Tweets predicted to be written by Donald J. Trump </p>
+              <p class="text"> My son; @EricTrump will be interviewed by @SeanHannity tonight at 10pm on @FoxNews. Enjoy!</p>
             </div>
           </div>
         </div>​
@@ -45,6 +60,7 @@
     </md-card>
     <br>
   </div>
+  -->
 
   <div class="home__training">
     <!--
@@ -68,7 +84,9 @@
 
 <div class = "tweetOutput">
 
-  <h1 class="recents">Recent Tweets: </h1>
+  <div class="maga">
+    <h1 class="subtitle">Recent Tweet Predictions</h1>
+  </div>
   <div *ngIf="svcResult">
 
     <md-card class="twitter-card" fixLayoutAlign = "center center" fixLayout="column">
@@ -83,7 +101,7 @@
             <div id="names">
               <b>   {{svcResult.tweetOnePred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetOne}} </p>
+              <p class="text"> {{svcResult.tweetOne}} </p>
             </div>
           </div>
         </div>​
@@ -102,7 +120,7 @@
             <div id="names">
               <b>   {{svcResult.tweetTwoPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetTwo}} </p>
+              <p class="text"> {{svcResult.tweetTwo}} </p>
             </div>
           </div>
         </div>​
@@ -121,7 +139,7 @@
             <div id="names">
               <b>   {{svcResult.tweetThreePred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetThree}} </p>
+              <p class="text"> {{svcResult.tweetThree}} </p>
             </div>
           </div>
         </div>​
@@ -140,7 +158,7 @@
             <div id="names">
               <b>   {{svcResult.tweetFourPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetFour}} </p>
+              <p class="text"> {{svcResult.tweetFour}} </p>
             </div>
           </div>
         </div>​
@@ -159,7 +177,7 @@
             <div id="names">
               <b>   {{svcResult.tweetFivePred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetFive}} </p>
+              <p class="text"> {{svcResult.tweetFive}} </p>
             </div>
           </div>
         </div>​
@@ -178,7 +196,7 @@
             <div id="names">
               <b>   {{svcResult.tweetSixPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetSix}} </p>
+              <p class="text"> {{svcResult.tweetSix}} </p>
             </div>
           </div>
         </div>​
@@ -197,7 +215,7 @@
             <div id="names">
               <b>   {{svcResult.tweetSevenPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetSeven}} </p>
+              <p class="text"> {{svcResult.tweetSeven}} </p>
             </div>
           </div>
         </div>​
@@ -216,7 +234,7 @@
             <div id="names">
               <b>   {{svcResult.tweetEightPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetEight}} </p>
+              <p class="text"> {{svcResult.tweetEight}} </p>
             </div>
           </div>
         </div>​
@@ -235,7 +253,7 @@
             <div id="names">
               <b>   {{svcResult.tweetNinePred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetNine}} </p>
+              <p class="text"> {{svcResult.tweetNine}} </p>
             </div>
           </div>
         </div>​
@@ -254,7 +272,7 @@
             <div id="names">
               <b>   {{svcResult.tweetTenPred}}   </b>
               @realDonaldTrump
-              <p> {{svcResult.tweetTen}} </p>
+              <p class="text"> {{svcResult.tweetTen}} </p>
             </div>
           </div>
         </div>​
@@ -266,23 +284,28 @@
 </div>
 
 <div class="home__prediction">
-  <a href="https://imgflip.com/i/2roqbi"><img src="https://i.imgflip.com/2roqbi.jpg" class="meme" title="Predict Your Own Tweet" height="50%" width="50%" align ="center"/></a>
-
-  <md-card class="twitter-card" fxLayoutAlign="center center" fxLayout="column">
-    <h4>Predict any tweet from President Trump</h4>
+  <!--
+  <a href="https://imgflip.com/i/2roqbi"><img src="https://i.imgflip.com/2roqbi.jpg" class="meme" title="Predict Your Own Tweet" height="30%" width="30%" align ="center"/></a>
+  -->
+  <div class="maga">
+    <h1 class="subtitle">Predict Custom Tweet</h1>
+  </div>
+  <md-card class="custom-card" fxLayoutAlign="center center" fxLayout="column">
+    <h4>Enter any tweet from @realDonaldTrump</h4>
 
     <md-input-container>
-      <input mdInput
+      <textarea mdInput
       name="Trump Tweet"
       width="600px"
       placeholder="Paste a tweet"
-      [(ngModel)]="tweet.text">
+      [(ngModel)]="tweet.text"></textarea>
     </md-input-container>
 
     <div>
       <button md-raised-button (click)="predictIris()">Predict tweet</button>
     </div>
   </md-card>
+  <br>
 
   <div *ngIf="probabilityPredictions" fxLayoutAlign="center center" fxLayout="column">
     <h4 class="prediction">Prediction Result</h4>
@@ -302,5 +325,6 @@
   </ngx-charts-bar-vertical>
 -->
   </div>
+</div>
 </div>
 </div>

@@ -7,7 +7,7 @@ export class Iris {
 
 export class Tweet {
 
-  text: string = "Trump";
+  text: string = "";
 
 }
 
@@ -42,4 +42,4 @@ export class SVCResult {
     tweetEightPred: string;
     tweetNinePred: string;
     tweetTenPred: string;
-} 
+}

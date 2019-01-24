@@ -81,7 +81,10 @@ def train():
 def predict():
     # get iris object from request
     X = request.get_json()
-    if X is not None:
+    if X is None or str(X['text']) == "":
+        prob = [[0,1]] #placeholder
+        author = 'Please enter a tweet'
+    else:
         X = str(X['text'])
 
         adaboost = joblib.load('model.pkl')
@@ -92,13 +95,10 @@ def predict():
         tweet = selector.transform(tweet)
         prob = adaboost.predict_proba(tweet)
 
-        if int(prob[0][1]) > int(prob[0][0]):
+        if int(prob[0][1]*100) > int(prob[0][0]*100):
             author = 'Donald J. Trump'
         else:
             author = 'White House Staff'
-    else:
-        prob = [[0,1]] #placeholder
-        author = 'Please enter a tweet'
 
     # return jsonify([{'name': 'Trump', 'value': int(prob[0][1]*100)},
     #                 {'name': 'Staff', 'value': int(prob[0][0]*100)}])
