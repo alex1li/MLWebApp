@@ -6,6 +6,11 @@ $chart-width: 600px;
     max-width: 100%;
 }
 
+.scroll{
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
 .maga{
   width: 600px;
 }
@@ -70,11 +75,6 @@ $chart-width: 600px;
 .predict{
   height: 160px;
   width: 600px;
-}
-
-.scroll{
-  overflow:auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .example-card {
@@ -227,5 +227,8 @@ body, html { overflow-x:hidden; }
   .instructions{
     width: 98%;
     height: auto;
+  }
+  .main-layout__content.main-layout__content--padding[_ngcontent-c1] {
+    padding: 0px;
   }
 }
