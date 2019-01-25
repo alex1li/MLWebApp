@@ -6,6 +6,7 @@ Alexander Li (afl59), Rohan Patel (rp442)
 1/10/19
 """
 import twitter
+import pandas as pd
 
 def getTweets():
     api = twitter.Api(consumer_key='mxSTcGP1nh6jmDG7MCB0BuOex',
@@ -19,9 +20,39 @@ def getTweets():
     test = []
     for t in tweets:
         #print(t['id'], t['text'])
-        test.append(t['full_text'])
+        text = t['full_text']
+        if '&amp;' in text:
+            text = text.replace('&amp;','&')
+        test.append(text)
 
     return test
+
+def getTweetsData():
+    api = twitter.Api(consumer_key='mxSTcGP1nh6jmDG7MCB0BuOex',
+      consumer_secret='6KO0vUmpeG04xzyNz5DSOXPvRKjPfAMcblGMhP6pyDrwQdPmlM',
+      access_token_key='491599498-QrCGgzC8scH15NbDq3qIbmNCnu9meo8Rc0u2L7qA',
+      access_token_secret='iR5tDCtehji5iWnEL7wrLsFItEepwS8bUHOmpKGjlcoUm',
+      tweet_mode="extended")
+
+    t = api.GetUserTimeline(screen_name="realDonaldTrump", include_rts=False, count=40)
+    tweets = [i.AsDict() for i in t]
+    tweetText = []
+    dict_ = {'text': [], 'favoriteCount': [], 'created': [], 'retweetCount': []}
+    for t in tweets:
+        #print(t['id'], t['text'])
+        time = t['created_at']
+        time = time.split(" ")[3][:5]
+        dict_['created'].append('date '+ time)
+        text = t['full_text']
+        if '&amp;' in text:
+            text = text.replace('&amp;','&')
+        dict_['text'].append(text)
+        tweetText.append(text)
+        dict_['retweetCount'].append(t['retweet_count'])
+        dict_['favoriteCount'].append(t['favorite_count'])
+
+    df = pd.DataFrame(dict_)
+    return df, tweetText
 
 def predictTweets(tweets, model, vec, selector):
     tweets = vec.transform(tweets).toarray()

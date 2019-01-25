@@ -1,3 +1,5 @@
 flask
 scikit-learn[alldeps]
 python-twitter
+pandas
+xgboost

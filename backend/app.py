@@ -3,6 +3,7 @@ from sklearn import svm
 from sklearn import datasets
 from sklearn.externals import joblib
 from classifier import *
+from classifier2 import *
 from tweets import *
 import numpy as np
 
@@ -25,14 +26,39 @@ def train():
     #joblib.dump(adaboost, 'model.pkl')
     #joblib.dump(vec, 'vectorizer.pkl')
     #joblib.dump(selector, 'selector.pkl')
+
     #use existing models
+    """
     adaboost = joblib.load('model.pkl')
     vec = joblib.load('vectorizer.pkl')
     selector = joblib.load('selector.pkl')
     # get tweets and predict
     recentTweets = getTweets()
     preds, predsNumber, predsUrl = predictTweets(recentTweets, adaboost, vec, selector)
-    #return jsonify({'accuracy': round(clf.score(X, y) * 100, 2)})
+    """
+
+    #Classifier 2 stuff -------------------------------------------------------
+    raw_train_data, train_label = get_data('train.csv', get_label=True)
+    train_data = process_raw_data(raw_train_data)
+    FEATURE_SIZE = train_data.shape[-1]
+
+    model = XGBClassifier(n_estimators=2500, learning_rate=0.01, max_depth=2)
+    model.fit(train_data, train_label)
+
+    data, recentTweets = getTweetsData()
+    processed = process_raw_data(data)
+
+    preds = model.predict(processed).tolist()
+    predsUrl = preds[:]
+    for i in range(len(preds)):
+        if preds[i] > 0:
+            preds[i] = "Donald J. Trump"
+            predsUrl[i] = "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
+        else:
+            preds[i] = "White House Staff"
+            predsUrl[i] = "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
+    #End Classifier 2 stuff ----------------------------------------------------
+
     #1 is Trump
     #-1 is Staff
     return jsonify({'accuracy': 'not used',
