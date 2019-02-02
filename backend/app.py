@@ -38,14 +38,20 @@ def train():
     """
 
     #Classifier 2 stuff -------------------------------------------------------
-    raw_train_data, train_label = get_data('train.csv', get_label=True)
-    train_data = process_raw_data(raw_train_data)
-    FEATURE_SIZE = train_data.shape[-1]
+    # raw_train_data, train_label = get_data('train.csv', get_label=True)
+    # train_data = process_raw_data(raw_train_data)
+    # FEATURE_SIZE = train_data.shape[-1]
+    #
+    # model = XGBClassifier(n_estimators=2500, learning_rate=0.01, max_depth=2)
+    # model.fit(train_data, train_label)
+    # joblib.dump(model, 'xgboost.pkl')
+    model = joblib.load('xgboost.pkl')
 
-    model = XGBClassifier(n_estimators=2500, learning_rate=0.01, max_depth=2)
-    model.fit(train_data, train_label)
-
+    retry = 5
     data, recentTweets = getTweetsData()
+    if len(recentTweets) < 2 and retry > 0:
+        data, recentTweets = getTweetsData()
+        retry -= 1
     processed = process_raw_data(data)
 
     preds = model.predict(processed).tolist()
@@ -100,7 +106,27 @@ def train():
 
     'tweetTen': recentTweets[9],
     'tweetTenPred': preds[9],
-    'tweetTenUrl': predsUrl[9]})
+    'tweetTenUrl': predsUrl[9],
+
+    'tweet11': recentTweets[10],
+    'tweet11Pred': preds[10],
+    'tweet11Url': predsUrl[10],
+
+    'tweet12': recentTweets[11],
+    'tweet12Pred': preds[11],
+    'tweet12Url': predsUrl[11],
+
+    'tweet13': recentTweets[12],
+    'tweet13Pred': preds[12],
+    'tweet13Url': predsUrl[12],
+
+    'tweet14': recentTweets[13],
+    'tweet14Pred': preds[13],
+    'tweet14Url': predsUrl[13],
+
+    'tweet15': recentTweets[14],
+    'tweet15Pred': preds[14],
+    'tweet15Url': predsUrl[14]})
 
 
 @app.route('/api/predict', methods=['POST'])

@@ -4,11 +4,15 @@
   </h1>
 
   <p class="body">
-    Trump or Staff is the extension of a class project for CS 4780, in which we developed a classifier to predict if a tweet from @realDonaldTrump is sent from an Android or iPhone. The motivation for this project came from the observation that for several months (November 2016 - March 2017) of the Trump Campaign and Presidency, almost all of the President’s aides owned iPhones while the President himself owned an Android.
+    Trump or Staff is the extension of a class project for CS 4780, in which we developed a classifier to predict if a tweet from @realDonaldTrump is sent from an Android or iPhone. The motivation for this project came from the observation that for several months (November 2016 - March 2017) of the Trump Campaign and Presidency, almost all of the President’s aides owned iPhones while the President himself owned an Android. Therefore knowing the type of phone from which a tweet is sent could indicate if the President wrote the tweet himself or if one of his staffers wrote the tweet.
   </p>
 
   <p class="body">
-    Therefore knowing the type of phone from which a tweet is sent could indicate if the President wrote the tweet himself or if one of his staffers wrote the tweet. Luckily, Twitter marks the type of phone a tweet is sent from in the metadata. Using this idea and data from Twitter’s public API, data scientists noted that there were indeed distinguishable patterns in the content, sentiment, timing, and language used between Android tweets and IPhone tweets, likely stemming from the difference in the writing styles of Trump himself and his staffers (analysis seen <a href="http://varianceexplained.org/r/trump-tweets/">here.</a>)
+    Luckily, Twitter marks the type of phone a tweet is sent from in the tweet's metadata. Using this idea and data from Twitter’s public API, data scientists noted that there were indeed distinguishable patterns in the content, sentiment, timing, and language used between Android tweets and IPhone tweets, likely stemming from the difference in the writing styles of Trump himself and his staffers (analysis seen <a href="http://varianceexplained.org/r/trump-tweets/">here.</a>)
+  </p>
+
+  <p class="body">
+    After March 2017, President Trump switched to an iPhone. For this project, we trained our classifier on tweets during the period when the President and his staff had different phone types in order to learn differences in their tweet style and content. We then use this classifier to predict if tweets today are sent by President Trump or a staffer.
   </p>
 
   <h1 class="section">
@@ -16,7 +20,7 @@
   </h1>
 
   <p class="body">
-    For this project, we trained our classifier on tweets during the period when the President and his staff had different phone types in order to learn differences in their tweet style and content. We assume tweets sent from an Android are from President Trump and tweets from an iPhone are from his staff. We then use this classifier to predict if tweets today are sent by President Trump or a staffer.
+    We assume tweets from November 2016 - March 2017 sent on an Android are from President Trump and tweets sent on an iPhone are from his staff. These serve as the labels for our training data.
   </p>
 
   <p class="body">
